@@ -1,12 +1,6 @@
 import EditTopicForm from "@/components/EditTopicForm";
 
-interface EditTopicProps {
-  params: {
-    id: string;
-  };
-}
-
-const getTopicById = async (id: string): Promise<{ topic: { title: string; description: string } }> => {
+const getTopicById = async (id) => {
   try {
     const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
       cache: "no-store",
@@ -19,12 +13,10 @@ const getTopicById = async (id: string): Promise<{ topic: { title: string; descr
     return res.json();
   } catch (error) {
     console.log(error);
-    // ในกรณี error ให้ return object เปล่า เพื่อไม่ให้ TypeScript error
-    return { topic: { title: "", description: "" } };
   }
 };
 
-export default async function EditTopic({ params }: EditTopicProps) {
+export default async function EditTopic({ params }) {
   const { id } = params;
   const { topic } = await getTopicById(id);
   const { title, description } = topic;

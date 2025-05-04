@@ -2,7 +2,6 @@ import RemoveBtn from "./RemoveBtn"
 import Link from "next/link"
 import { HiPencilAlt } from "react-icons/hi"
 
-import { Button } from "@/components/ui/button"
 import {
     Card,
     CardDescription,
@@ -31,7 +30,7 @@ export default async function TopicList() {
 
     return (
         <>
-            {topics.map((t:any) => (
+            {topics.map((t) => (
                 <Card className="flex p-4 mb-4 border-stone-800 container mx-auto px-4">
                     <div className="text-white">
                         <CardTitle>{t.title}</CardTitle>
