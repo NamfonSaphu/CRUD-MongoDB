@@ -30,7 +30,7 @@ export default async function TopicList() {
 
     return (
         <>
-            {topics.map((t) => (
+            {topics.map((t:any) => (
                 <Card className="flex p-4 mb-4 border-stone-800 container mx-auto px-4">
                     <div className="text-white">
                         <CardTitle>{t.title}</CardTitle>
