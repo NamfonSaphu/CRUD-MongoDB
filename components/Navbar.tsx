@@ -3,8 +3,8 @@ import Link from "next/link"
 export default function Navbar() {
   return (
     <nav className="flex justify-between items-center">
-        <Link href={'/'} className="text-stone font-bold">TODOLIST</Link>
-        <Link href={'/addTopic'} className="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">Add</Link>
+        <Link href={'/'} className="text-stone font-bold text-white">TODOLIST</Link>
+        <Link href={'/addTopic'} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-md text-sm px-5 py-2.25 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Add</Link>
     </nav>
       )
 }

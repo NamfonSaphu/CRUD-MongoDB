@@ -32,8 +32,8 @@ export default async function TopicList() {
     return (
         <>
             {topics.map((t:any) => (
-                <Card className="w-[750px] flex p-4 mb-4">
-                    <div>
+                <Card className="flex p-4 mb-4 border-stone-800 container mx-auto px-4">
+                    <div className="text-white">
                         <CardTitle>{t.title}</CardTitle>
                         <CardDescription>
                             {t.description}
@@ -42,7 +42,7 @@ export default async function TopicList() {
                     <div className="flex gap-2">
                         <RemoveBtn id={t._id} />
                         <Link href={`/editTopic/${t._id}`}>
-                            <HiPencilAlt size={24} />
+                            <HiPencilAlt size={24} className="text-white" />
                         </Link>
                     </div>
                 </Card>
