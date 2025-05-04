@@ -1,8 +1,8 @@
 'use client'
-
 import { Input } from "@/components/ui/input"
 import { useState, FormEvent } from "react"
 import { useRouter } from "next/navigation"
+import { toast } from "sonner"
 
 interface EditTopicFormProps {
   id: string;
@@ -32,10 +32,17 @@ export default function EditTopicForm({ id, title, description }: EditTopicFormP
         throw new Error("Failed to update topic");
       }
 
+      toast.success("Topic updated successfully!", {
+        style: { backgroundColor: '#28a745', color: 'white' }
+      });
+
       router.refresh();
       router.push("/");
     } catch (error) {
       console.log(error);
+      toast.error("Failed to update topic!", {
+        style: { backgroundColor: '#dc3545', color: 'white' }
+      });
     }
   };
 
@@ -44,7 +51,12 @@ export default function EditTopicForm({ id, title, description }: EditTopicFormP
       <Input onChange={e => setNewTitle(e.target.value)} value={newTitle} type="text" placeholder="Topic Title" className="bg-violet-200/10 text-white" />
       <Input onChange={e => setNewDescription(e.target.value)} value={newDescription} type="text" placeholder="Topic Description" className="bg-violet-200/10 text-white" />
       <div>
-        <button type="submit" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-md text-sm px-5 py-2.25 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Update</button>
+        <button
+          type="submit"
+          className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-md text-sm px-5 py-2.25 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        >
+          Update
+        </button>
       </div>
     </form>
   );
